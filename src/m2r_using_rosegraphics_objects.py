@@ -41,7 +41,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 #     e. Use the DOT trick to answer the following:
 #
 #          -- Write the names of two types of graphics objects that
-#             Rectangle and RoseWindow
+#             Rectangle and Ellipse
 #
 #
 #          -- Write the names of three METHODs that Circle objects have:
@@ -49,15 +49,15 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 #                 circle.attach_to
 #          -- Write the names of three INSTANCE VARIABLEs that Circle
 #             objects have:
-#                center point, radius, and color
+#                center point, radius, and fill color
 #
 #     f. What does a RoseWindow RENDER method do?
-#            WRITE_YOUR_ANSWER_HERE,_REPLACING_THIS
+#           allows all of the attached objects be shown
 #
 #     g. When is a RoseWindow close_on_mouse_click method call
 #        necessary?  Why?
-#            WRITE_YOUR_ANSWER_HERE,_REPLACING_THIS
-#
+#           It allows the window to saty open after it is rendered
+
 #   ASK QUESTIONS ** NOW ** if you do not understand how the
 #     RoseGraphics graphics system works.
 #
