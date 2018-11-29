@@ -5,8 +5,8 @@ This module lets you practice  ** using objects **, including:
   -- accessing their DATA via INSTANCE VARIABLES
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Brandon Wohlfarth.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -14,8 +14,9 @@ import rosegraphics as rg
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
-
-
+    two_circles()
+    circle_and_rectangle(200, 150, 50, 'blue', 10, 10, 100, 100, 10, 'red')
+    lines(250, 150, 200, 50, 100, 100, 121, 200, 15)
 def two_circles():
     """
     -- Constructs an rg.RoseWindow.
@@ -27,15 +28,23 @@ def two_circles():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its green doc-string above.
+    # DONE: 2. Implement this function, per its green doc-string above.
     #    -- ANY two rg.Circle objects that meet the criteria are fine.
     #    -- File  COLORS.pdf  lists all legal color-names.
     # Put a statement in   main   to test this function
     #    (by calling this function).
     # -------------------------------------------------------------------------
+    window = rg.RoseWindow()
+    circle1 = rg.Circle(rg.Point(100, 50), 15)
+    circle1.fill_color = 'blue'
+    circle2 = rg.Circle(rg.Point(200, 150), 50)
+    circle2.outline_color = 'red'
+    circle1.attach_to(window)
+    circle2.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
 
-
-def circle_and_rectangle():
+def circle_and_rectangle(xc, yc, rad, colorc, xr1, yr1, xr2, yr2, t, colorr):
     """
     -- Constructs an rg.RoseWindow.
     -- Constructs and draws a rg.Circle and rg.Rectangle
@@ -67,7 +76,7 @@ def circle_and_rectangle():
            150.0
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # DONE: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -75,9 +84,32 @@ def circle_and_rectangle():
     # IMPORTANT: Use the DOT TRICK to guess the names of the relevant
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
+    window = rg.RoseWindow()
+    circle = rg.Circle(rg.Point(xc, yc), rad)
+    tc = circle.outline_thickness
+    circle.fill_color = colorc
+    rect = rg.Rectangle(rg.Point(xr1, yr1),rg.Point(xr2, yr2))
+    rect.outline_color = colorr
+    rect.outline_thickness = t
+    midx = (xr1+xr2)/2
+    midy = (yr1 + yr2) / 2
 
+    print(tc)
+    print(colorc)
+    print(rg.Point(xc, yc))
+    print(xc)
+    print(yc)
+    print('None')
+    print(t)
+    print(rg.Point(midx, midy))
+    print(midx)
+    print(midy)
+    rect.attach_to(window)
+    circle.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
 
-def lines():
+def lines(x1, y1, x2, y2, x3, y3, x4, y4, t):
     """
     -- Constructs a rg.RoseWindow.
     -- Constructs and draws on the window two rg.Lines such that:
@@ -99,7 +131,19 @@ def lines():
 
     -- Waits for the user to press the mouse, then closes the window.
     """
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
+    window = rg.RoseWindow()
+    line1 = rg.Line(rg.Point(x1, y1), rg.Point(x2, y2))
+    line2 = rg.Line(rg.Point(x3, y3), rg.Point(x4, y4))
+    line2.thickness = t
+    center = line2.get_midpoint()
+    print(center)
+    print(center.x)
+    print(center.y)
+    line1.attach_to(window)
+    line2.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
 
 
 # -----------------------------------------------------------------------------
